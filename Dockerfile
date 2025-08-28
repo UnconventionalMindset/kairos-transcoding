@@ -1,4 +1,4 @@
-FROM quay.io/kairos/fedora:40-standard-amd64-generic-v3.1.1-k3sv1.30.2-k3s1
+FROM quay.io/kairos/fedora:40-standard-amd64-generic-v3.3.6-k3sv1.32.2-k3s1
 
 RUN dnf install -y \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
@@ -16,5 +16,5 @@ RUN dnf install -y \
     dnf clean all
 
 RUN systemctl enable iscsid.service
-RUN export VERSION="40-container-transcoding-1.0"
+RUN export VERSION="40-container-transcoding-2.0.0"
 RUN envsubst '${VERSION}' </etc/os-release
